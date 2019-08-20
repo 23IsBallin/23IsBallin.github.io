@@ -110,9 +110,32 @@
             </p>
         </header>
         <div class="entry-content">
-            <h1 id="下载backdoorfactory"><a href="#下载backdoorfactory" class="headerlink" title="- 下载backdoorfactory:"></a>- 下载backdoorfactory:</h1><p><a href="https://github.com/secretsquirrel/the-backdoor-factory" target="_blank" rel="noopener">https://github.com/secretsquirrel/the-backdoor-factory</a></p>
-<p><img src="BackdoorFactory/1.png" alt="1"></p>
+            <h1 id="0x00-下载Backdoor-Factory"><a href="#0x00-下载Backdoor-Factory" class="headerlink" title="0x00 下载Backdoor Factory:"></a>0x00 下载Backdoor Factory:</h1><p><a href="https://github.com/secretsquirrel/the-backdoor-factory" target="_blank" rel="noopener">https://github.com/secretsquirrel/the-backdoor-factory</a></p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/1.png" alt="1"></p>
+<h1 id="0x01-检测软件是否能做后门"><a href="#0x01-检测软件是否能做后门" class="headerlink" title="0x01 检测软件是否能做后门:"></a>0x01 检测软件是否能做后门:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python backdoor.py -f ../Notepad++.exe -S</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/2.png" alt="2"></p>
+<p>检测结果:</p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/3.png" alt="3"></p>
+<h1 id="0x02-检测软件是否有空挡位置插入后门"><a href="#0x02-检测软件是否有空挡位置插入后门" class="headerlink" title="0x02 检测软件是否有空挡位置插入后门"></a>0x02 检测软件是否有空挡位置插入后门</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python backdoor.py -f ../Notepad++.exe -c -l 750</span><br></pre></td></tr></table></figure>
+
+<p>参数解释:</p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/4.png" alt="4"></p>
+<p>运行检测命令:</p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/5.png" alt="5"></p>
+<p>运行结果发现, 有21处可以插入后门:</p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/6.png" alt="6"></p>
+<h1 id="0x03查看可用Payload"><a href="#0x03查看可用Payload" class="headerlink" title="0x03查看可用Payload:"></a>0x03查看可用Payload:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python backdoor.py -f ../Notepad++.exe -show</span><br></pre></td></tr></table></figure>
+
+<p><strong>“-show</strong> 参数作用是显示可用payload:</p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/7.png" alt="7"></p>
+<p>显示可用Payload结果:</p>
+<p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/8.png" alt="8"></p>
+<h1 id="0x04选择模块"><a href="#0x04选择模块" class="headerlink" title="0x04选择模块"></a>0x04选择模块</h1><p><img src="https://github.com/23IsBallin/23IsBallin.github.io/tree/master/images/BackdoorFactory/9.png" alt="9"></p>
+<p>-s+模块名称</p>
+<p>-H+监听机IP</p>
+<p>-P+监听机端口</p>
+<h1 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h1>
         </div>
         <footer>
             <p class="meta">
