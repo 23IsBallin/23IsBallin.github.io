@@ -6,7 +6,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
-    <title>23IsBallin</title>
+    <title>frp转发端口</title>
 
     <meta name="author" content="23IsBallin">
 
@@ -16,7 +16,7 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-    <link rel="canonical" href="http://yoursite.com/">
+    <link rel="canonical" href="http://yoursite.com/2019/08/21/frp转发端口/">
 
     
         <link rel="alternate" href="/atom.xml" type="application/atom+xml">
@@ -99,45 +99,79 @@
 
 <div id="main">
     <div id="content">
-        <div class="blog-index">
+        <div>
+    <article class="hentry" role="article">
+        <header>
+            <h1 class="entry-title">frp转发端口</h1>
+            <p class="meta">
+                <time datetime="2019-08-21T07:29:36.000Z" data-updated="true">Wed Aug 21 2019</time>
+            </p>
+        </header>
+        <div class="entry-content">
+            <h2 id="0x00下载frp工具"><a href="#0x00下载frp工具" class="headerlink" title="0x00下载frp工具"></a>0x00下载frp工具</h2><p>下载地址: <a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">https://github.com/fatedier/frp/releases</a></p>
+<p><img src="/2019/08/21/frp转发端口/0.png" alt></p>
+<p><img src="/2019/08/21/frp转发端口/Snipaste_2019-08-21_15-43-21.png" alt></p>
+<p>选择对应版本进行下载</p>
+<h2 id="0x01-内网机器端-Windows"><a href="#0x01-内网机器端-Windows" class="headerlink" title="0x01 内网机器端(Windows):"></a>0x01 内网机器端(Windows):</h2><p>先确定内网机器的3389打开了</p>
+<p><img src="/2019/08/21/frp转发端口/1.png" alt></p>
+<p>配置frp包里面的 frpc.ini</p>
+<p><img src="/2019/08/21/frp转发端口/Snipaste_2019-08-21_15-51-31.png" alt></p>
+<p><img src="/2019/08/21/frp转发端口/2.png" alt></p>
+<p>server_addr 和 server_port 填 VPS 对应的公网IP 和 开放的端口</p>
+<p>在[rdp] 里面, 把只对内网开放的3389映射到对外放开的5555端口</p>
+<h2 id="0x02-VPS机器"><a href="#0x02-VPS机器" class="headerlink" title="0x02 VPS机器:"></a>0x02 VPS机器:</h2><p>VPS机器下载好 frp包之后, 设置里面的/frps.ini文件:</p>
+<p><img src="/2019/08/21/frp转发端口/3.png" alt></p>
+<p>这里需要对应内网机器设置的端口(7000), 然后就是打开监听, 等待内网机器连接到这个端口.</p>
+<p><img src="/2019/08/21/frp转发端口/4.png" alt></p>
+<p>上面的是内网机器, 在cmd 里面运行 frpc.exe</p>
+<p><img src="/2019/08/21/frp转发端口/5.png" alt></p>
+<p>VPS机器接收到内网机器发过来的请求并连接成功.</p>
+<h2 id="0x03-攻击机器"><a href="#0x03-攻击机器" class="headerlink" title="0x03 攻击机器"></a>0x03 攻击机器</h2><p><img src="/2019/08/21/frp转发端口/6.png" alt></p>
+<p>最后, 攻击机器只需要连接上 VPS 的 5555端口, 既可以远程操控内网机器.</p>
+<h2 id="0x04-总结"><a href="#0x04-总结" class="headerlink" title="0x04 总结"></a>0x04 总结</h2><p><img src="/2019/08/21/frp转发端口/Snipaste_2019-08-21_16-14-17.png" alt></p>
+<p>整个流程大概如上图所示, </p>
+<ul>
+<li><p>内网机器端口3389(对内) 映射到端口5555(对外)</p>
+</li>
+<li><p>然后再发送到外网VPS端口7000.</p>
+</li>
+<li><p>攻击机通过连接外网VPS机器,再控制内网机器, 这里要注意是连接端口5555</p>
+</li>
+</ul>
+
+        </div>
+        <footer>
+            <p class="meta">
+                <span class="byline author vcard">Posted by <span class="fn">23IsBallin</span></span>
+                <time datetime="2019-08-21T07:29:36.000Z" data-updated="true">Wed Aug 21 2019</time>
+                
+    <span class="categories">
     
-        
-        <article>
-            <header>
-                <h1 class="entry-title">
-                    <a href="/2019/08/21/frp转发端口/">frp转发端口</a>
-                </h1>
-                <p class="meta">
-                    <time datetime="2019-08-21T07:29:36.000Z" data-updated="true">Wed Aug 21 2019</time>
-                </p>
-            </header>
-            <div class="entry-content"></div>
-            <footer>
-                <a rel="full-article" href="/2019/08/21/frp转发端口/">Read on →</a>
-            </footer>
-        </article>
-        
-        <article>
-            <header>
-                <h1 class="entry-title">
-                    <a href="/2019/08/18/BackdoorFactory 后门制作教程/">BackdoorFactory制作后门软件</a>
-                </h1>
-                <p class="meta">
-                    <time datetime="2019-08-18T09:00:52.000Z" data-updated="true">Sun Aug 18 2019</time>
-                </p>
-            </header>
-            <div class="entry-content"></div>
-            <footer>
-                <a rel="full-article" href="/2019/08/18/BackdoorFactory 后门制作教程/">Read on →</a>
-            </footer>
-        </article>
-        
-        <div class="pagination">
-    <a href="/archives">Blog Archives</a>
-    <span class="page-number current">1</span>
+        <a class="category" href="/tags/内网知识/">内网知识</a>
+    
+    </span>
+
+            </p>
+            <div class="sharing">
+    
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=frp%E8%BD%AC%E5%8F%91%E7%AB%AF%E5%8F%A3">
+            Tweet
+        </a>
+    
 </div>
 
+            <p class="meta">
+                
+
+                
+                <a class="basic-alignment right" href="/2019/08/18/BackdoorFactory 后门制作教程/index.html" title="Previous Post: BackdoorFactory制作后门软件">BackdoorFactory制作后门软件 »</a>
+                
+            </p>
+        </footer>
+    </article>
+
     
+
 </div>
 
 <aside class="sidebar">
